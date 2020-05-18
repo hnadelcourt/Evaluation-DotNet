@@ -1,0 +1,51 @@
+﻿@model Evaluation.ViewModels.RechercheViewModel
+@{
+    Layout = null;
+}
+
+    <head>
+        <meta name="viewport" content="width=device-width" />
+        <title>AccueilView</title>
+        <style type="text/css">
+            table {
+                border-collapse: collapse;
+            }
+
+            td, th {
+                border: 1px solid black;
+            }
+        </style>
+    </head>
+@using (Html.BeginForm("Recherche", "Accueil", FormMethod.Get))
+{
+    @Html.TextBoxFor(m => m.Recherche);
+    <input type="submit" value="Rechercher" />
+
+    <p>Résultats de la recherche</p>
+    if (Model.listeDesClients.Count == 0)
+    {
+        <p>Pas de résultat</p>
+    }
+    else
+    {
+        <table>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Prénom</th>
+                <th>Adresse</th>
+
+            </tr>
+            @foreach (var client in Model.listeDesClients)
+            {
+        <tr>
+            <td>@client.Id</td>
+            <td>@client.Nom</td>
+            <td>@client.Prenom</td>
+            <td>@client.Adresse</td>
+        </tr>
+            }
+        </table>
+    }
+}
+

@@ -1,0 +1,69 @@
+﻿@model List<Evaluation.Models.Client>
+
+@{
+    Layout = null;
+}
+
+
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>AccueilView</title>
+    <style type="text/css">
+        table {
+            border-collapse: collapse;
+        }
+
+        td, th {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <fieldset>
+        <br />
+        <h1>Gestion des Clients</h1>
+        <br />
+    </fieldset>
+
+    <br />
+
+    <fieldset>
+        <p>Sélectionner un client</p>
+        <table>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Prénom</th>
+                <th>Adresse</th>
+                <th>Ville</th>
+            </tr>
+            @foreach (var client in Model)
+            {
+                <tr>
+                    <td>@client.Id</td>
+                    <td>@client.Nom</td>
+                    <td>@client.Prenom</td>
+                    <td>@client.Adresse</td>
+                    <td>@client.Ville</td>
+                    <td>@Html.ActionLink("Modifier " + client.Nom + " " + client.Prenom, "ModifierClient", new { id = client.Id })</td>
+                    <td>@Html.ActionLink("Supprimer " + client.Nom + " " + client.Prenom, "SupprimerClient", new { id = client.Id })</td>
+                </tr>
+            }
+        </table>
+        <br />
+    </fieldset>
+
+    <br />
+    <br />
+
+ 
+    @Html.Partial("CreerClient")
+      
+    @Html.ActionLink("Client filtrer par Ville", "Recherche")
+
+</body>
+</html>
+

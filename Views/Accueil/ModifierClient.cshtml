@@ -1,0 +1,52 @@
+﻿@model Evaluation.Models.Client
+@{
+    Layout = null;
+}
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ModifierClientView</title>
+    <link type="text/css" href="~/Content/Site.css" rel="stylesheet" />
+    <script type="text/javascript" src="~/Scripts/jquery-1.10.2.js"></script>
+    <script type="text/javascript" src="~/Scripts/jquery.validate-vsdoc.js"></script>
+    <script type="text/javascript" src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+
+</head>
+
+<body>
+    @using (Html.BeginForm())
+    {
+    <fieldset>
+        <legend>Modifier un client</legend>
+         <br />
+        <div>
+            @Html.LabelFor(model => model.Nom)
+            @Html.TextBoxFor(model => model.Nom)
+            @Html.ValidationMessageFor(model => model.Nom)
+        </div>
+        <br />
+        <div>
+            @Html.LabelFor(model => model.Prenom)
+            @Html.TextBoxFor(model => model.Prenom)
+            @Html.ValidationMessageFor(model => model.Prenom)
+        </div>
+        <br />
+        <div>
+            @Html.LabelFor(model => model.Adresse)
+            @Html.TextBoxFor(model => model.Adresse)
+            @Html.ValidationMessageFor(model => model.Adresse)
+        </div>
+        <br />
+        <div>
+            @Html.LabelFor(model => model.Ville)
+            @Html.TextBoxFor(model => model.Ville)
+            @Html.ValidationMessageFor(model => model.Ville)
+        </div>
+        <br />
+        <input type="submit" value="Modifier" />
+    </fieldset>
+    }
+</body>
+</html>
+

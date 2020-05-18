@@ -1,0 +1,46 @@
+﻿<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ModifierClientView</title>
+    <link type="text/css" href="~/Content/Site.css" rel="stylesheet" />
+    <script type="text/javascript" src="~/Scripts/jquery-1.10.2.js"></script>
+    <script type="text/javascript" src="~/Scripts/jquery.validate-vsdoc.js"></script>
+    <script type="text/javascript" src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+
+</head>
+@using (Ajax.BeginForm("CreerClient", "Accueil", 
+new AjaxOptions
+{
+OnSuccess = "onSuccessRefresh "
+}))
+{
+    <fieldset>
+
+
+        <div>
+            @Html.Label("Nom")
+            @Html.TextBox("Nom")
+            @Html.ValidationMessage("Nom")
+        </div>
+        <br />
+        <div>
+            @Html.Label("Prenom")
+            @Html.TextBox("Prenom")
+            @Html.ValidationMessage("Prenom")
+        </div>
+        <br />
+        <div>
+            @Html.Label("Adresse")
+            @Html.TextBox("Adresse")
+            @Html.ValidationMessage("Adresse")
+        </div>
+        <br />
+        <div>
+            @Html.Label("Ville")
+            @Html.TextBox("Ville")
+            @Html.ValidationMessage("Ville")
+        </div>
+        <br />
+        <input type="submit" value="Créer nouveau" />
+
+    </fieldset>
+}
